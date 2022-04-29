@@ -12,57 +12,25 @@
 
 #include "push_swap.h"
 
-
-int	ft_isdigit(int c)
+int	ft_atoi(const char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-static int	ft_isspace(int c)
-{
-	return ((c >= 9 && c <= 13) || c == ' ');
-}
-
-static int	ft_long_border(const char c, int mult, long nb)
-{
-	long	border;
-
-	border = 922337203685477580;
-	if ((nb > border || (nb == border && (c - '0') > 7)) && mult == 1)
-		return (-1);
-	else if ((nb > border || (nb == border && (c - '0') > 8)) && mult == -1)
-		return (0);
-	return (1);
-}
-
-int	*ft_atoi(const char *str)
-{
-	long	num;
-	int		sign;
-	int		brd;
-	int		*new;
+	int	num;
+	int	sign;
+	int	brd;
 
 	num = 0;
 	sign = 1;
 	brd = 1;
-	printf("converting %s ->", str);
-	while (ft_isspace(*str))
-		str++;
 	if (*str == '-')
 		sign = -1;
 	if (*str == '-' || *str == '+')
 		str++;
-	while (*str && ft_isdigit(*str))
+	while (*str)
 	{
-		brd = ft_long_border(*str, sign, num);
 		if (brd < 1)
 			return (brd);
 		num = (num * 10) + (*str - '0');
 		str++;
 	}
-	new = malloc(sizeof(num));
-	*new = num * sign;
-	return (new);
+	return (num * sign);
 }

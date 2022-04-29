@@ -16,7 +16,7 @@ void	printf_stack(t_stacks *stack)
 {
 	int	i;
 
-	i = 9;
+	i = stack->lengh;
 	printf("\n");
 	while (--i)
 		printf("%d->| %d | %d |\n", i, stack->a[i], stack->b[i]);
@@ -28,18 +28,20 @@ void	swapa(t_stacks *sk)
 {
 	int	*temp;
 
-	temp = sk->a[sk->atop];
+	temp = NULL;
+	*temp = sk->a[sk->atop];
 	sk->a[sk->atop] = sk->a[sk->atop - 1];
-	sk->a[sk->atop - 1] = temp;
+	sk->a[sk->atop - 1] = *temp;
 }
 
 void	swapb(t_stacks *sk)
 {
 	int	*temp;
 
-	temp = sk->b[sk->btop];
+	temp = NULL;
+	*temp = sk->b[sk->btop];
 	sk->b[sk->btop] = sk->b[sk->btop - 1];
-	sk->b[sk->btop - 1] = temp;
+	sk->b[sk->btop - 1] = *temp;
 }
 
 void	pusha(t_stacks *sk)
@@ -54,14 +56,7 @@ void	pushb(t_stacks *sk)
 
 void	sort(t_stacks *sk)
 {
-	// int	i;
-	//swaptop(a);
 	pusha(sk);
-	// i = 1;
-	// while (i)
-	// {
-	// 	if (a->stack[a->top] > )
-	// }
 }
 
 void int_stacks(t_stacks *sk, char **argv)
@@ -74,7 +69,10 @@ void int_stacks(t_stacks *sk, char **argv)
 	b = malloc(sk->lengh);
 	i = 0;
 	while (i < sk->lengh)
+	{
 		a[i] = ft_atoi(argv[i]);
+		b[i++] = 0;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -84,6 +82,9 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	stack.lengh = argc - 1;
+	stack.atop = argc - 1;
+	stack.btop = 0;
+	int_stacks(&stack, argv);
 	while (i++ < 3)
 	{
 		printf_stack(&stack);
