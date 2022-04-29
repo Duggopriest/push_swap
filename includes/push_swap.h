@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:01:31 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/28 17:21:29 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/04/29 11:55:22 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 # include <stdlib.h>
 
 typedef struct s_stacks {
-	char	**stack;
-	int		lengh;
-	int		a;
-	int		b;
+	int	*a;
+	int	*b;
+	int	lengh;
+	int	atop;
+	int	btop;
 }	t_stacks;
 
 int	ft_atoi(const char *str);

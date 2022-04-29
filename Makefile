@@ -9,6 +9,10 @@ all:
 	@echo -n Compiling push_swap...
 	@gcc $(SRC) $(INCS) $(FLAGS) -o $(NAME)
 	@echo Done
+
+run:
+	@make
+	@clear
 	@echo sorting
 	@./push_swap.out 5 4 6 3 7 2 8 1 9
 

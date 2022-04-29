@@ -6,79 +6,57 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/28 17:22:26 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:10:25 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printf_stack(t_int *stack_A, t_int *stack_B)
+void	printf_stack(t_stacks *stack)
 {
 	int	i;
 
 	i = 9;
 	printf("\n");
 	while (--i)
-		printf("%d->| %c | %c |\n", i, stack_A->stack[i][0], stack_B->stack[i][0]);
+		printf("%d->| %d | %d |\n", i, stack->a[i], stack->b[i]);
 	printf("---------------------------\n");
-	printf(" A	 B		Q%d\n", stack_A->lengh);
+	printf(" A	 B		Q%d\n", stack->lengh);
 }
 
-char	*char_calloc(int size)
+void	swapa(t_stacks *sk)
 {
-	char	*new;
-	int		i;
+	int	*temp;
 
-	i = 0;
-	new = malloc(size);
-	while (i < size)
-		new[i++] = '0';
-	new[i] = '\0';
-	return (new);
+	temp = sk->a[sk->atop];
+	sk->a[sk->atop] = sk->a[sk->atop - 1];
+	sk->a[sk->atop - 1] = temp;
 }
 
-char **new_col(int size)
+void	swapb(t_stacks *sk)
 {
-	char	**new;
-	int		i;
+	int	*temp;
 
-	i = 0;
-	new = malloc(size + 1);
-	while (i < size)
-		new[i++] = char_calloc(1);
-	new[i] = 0;
-	new[0][0] = '0';
-	new[1][0] = '0';
-	new[2][0] = '0';
-	new[3][0] = '0';
-	return (new);
+	temp = sk->b[sk->btop];
+	sk->b[sk->btop] = sk->b[sk->btop - 1];
+	sk->b[sk->btop - 1] = temp;
 }
 
-void	swaptop(t_int *a)
+void	pusha(t_stacks *sk)
 {
-	char	*temp;
-
-	temp = a->stack[a->top];
-	a->stack[a->top] = a->stack[a->top - 1];
-	a->stack[a->top - 1] = temp;
+	sk->b[++sk->btop] = sk->a[sk->atop];
 }
 
-void	push(t_int *from, t_int *to)
+void	pushb(t_stacks *sk)
 {
-	char	*temp;
-
-	temp = from->stack[from->top];
-	from->stack[from->top] = to->stack[to->top];
-	from->top--;
-	to->top++;
-	to->stack[to->top] = temp;
+	sk->b[++sk->btop] = sk->a[sk->atop];
 }
 
-void	sort(t_int *a, t_int *b)
+void	sort(t_stacks *sk)
 {
 	// int	i;
 	//swaptop(a);
-	push(a, b);
+	pusha(sk);
 	// i = 1;
 	// while (i)
 	// {
@@ -92,15 +70,10 @@ int	main(int argc, char **argv)
 	int		i;
 
 	i = 0;
-	stack = malloc(sizeof(t_stacks));
-	a->lengh = argc - 1;
-	a->top = argc - 2;
-	b->top = 0;
-	stack = &argv[1];
-	b->stack = new_col(argc - 1);
+	stack.lengh = argc - 1;
 	while (i++ < 3)
 	{
-		printf_stack(a, b);
-		sort(a, b);
+		printf_stack(&stack);
+		sort(&stack);
 	}
 }
