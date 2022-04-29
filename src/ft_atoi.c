@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 12:49:25 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/28 14:57:13 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/04/29 16:14:21 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ static int	ft_long_border(const char c, int mult, long nb)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+int	*ft_atoi(const char *str)
 {
 	long	num;
 	int		sign;
 	int		brd;
+	int		*new;
 
 	num = 0;
 	sign = 1;
@@ -61,5 +62,7 @@ int	ft_atoi(const char *str)
 		num = (num * 10) + (*str - '0');
 		str++;
 	}
-	return (num * sign);
+	new = malloc(sizeof(num));
+	*new = num * sign;
+	return (new);
 }

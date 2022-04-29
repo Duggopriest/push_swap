@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/29 13:10:25 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/04/29 16:12:24 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,19 @@ void	sort(t_stacks *sk)
 	// {
 	// 	if (a->stack[a->top] > )
 	// }
+}
+
+void int_stacks(t_stacks *sk, char **argv)
+{
+	int	*a;
+	int	*b;
+	int	i;
+
+	a = malloc(sk->lengh);
+	b = malloc(sk->lengh);
+	i = 0;
+	while (i < sk->lengh)
+		a[i] = ft_atoi(argv[i]);
 }
 
 int	main(int argc, char **argv)
