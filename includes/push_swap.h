@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgobbett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:01:31 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/29 11:55:22 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/04/30 06:35:11 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,18 @@ typedef struct s_stacks {
 	int	lengh;
 	int	atop;
 	int	btop;
+	int	current;
 }	t_stacks;
 
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
+void	pushb(t_stacks *sk);
+void	swapb(t_stacks *sk);
+void	pusha(t_stacks *sk);
+void	swapa(t_stacks *sk);
+void	top_checka(t_stacks *sk);
+void	top_swapb(t_stacks *sk);
+void	putstr(char *str);
+void	rev_sort(t_stacks *sk);
+void	printf_stack(t_stacks *sk);
 
 #endif
