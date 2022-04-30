@@ -24,6 +24,8 @@ typedef struct s_stacks {
 	int	atop;
 	int	btop;
 	int	current;
+	int	total;
+	int	max;
 }	t_stacks;
 
 int		ft_atoi(const char *str);
@@ -36,5 +38,9 @@ void	top_swapb(t_stacks *sk);
 void	putstr(char *str);
 void	rev_sort(t_stacks *sk);
 void	printf_stack(t_stacks *sk);
+int		is_solved(t_stacks *sk);
+void	rotatea(t_stacks *sk);
+int		is_halveda(t_stacks *sk);
+int		is_halvedb(t_stacks *sk);
 
 #endif

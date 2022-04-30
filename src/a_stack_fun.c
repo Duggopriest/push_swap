@@ -19,8 +19,9 @@ void	swapa(t_stacks *sk)
 	temp = sk->a[sk->atop];
 	sk->a[sk->atop] = sk->a[sk->atop - 1];
 	sk->a[sk->atop - 1] = temp;
+	sk->total++;
+	// putstr("SA\n");
 	printf_stack(sk);
-	putstr("SA\n");
 }
 
 void	pusha(t_stacks *sk)
@@ -28,6 +29,20 @@ void	pusha(t_stacks *sk)
 	sk->btop++;
 	sk->b[sk->btop] = sk->a[sk->atop];
 	sk->a[sk->atop--] = 0;
+	sk->total++;
+	// putstr("PA\n");
 	printf_stack(sk);
-	putstr("PA\n");
+}
+
+void	rotatea(t_stacks *sk)
+{
+	int	i;
+	int	temp;
+
+	i = sk->atop + 1;
+	temp = sk->a[sk->atop];
+	while (--i)
+		sk->a[i] = sk->a[i - 1];
+	sk->a[1] = temp;
+	printf_stack(sk);
 }

@@ -10,11 +10,29 @@ all:
 	@gcc $(SRC) $(INCS) $(FLAGS) -o $(NAME)
 	@echo Done
 
-run:
+run0:
 	@make
 	@clear
 	@echo sorting
-	@./push_swap.out 5 4 6 3 7 2 8 1 9 4 6 3 7 2 6 4 8 23 73 234 7 33 7 34 7 23 7 1 35 4 15 68 114 35 48 72 3 14 58 64 337 15 68 13 516 48965 5641 13 51 14
+	@./push_swap.out 3 3
+
+run1:
+	@make
+	@clear
+	@echo sorting
+	@./push_swap.out 5 12
+
+run2:
+	@make
+	@clear
+	@echo sorting
+	@./push_swap.out 100 1500
+
+run3:
+	@make
+	@clear
+	@echo sorting
+	@./push_swap.out 500 11500
 
 git:
 	@clear

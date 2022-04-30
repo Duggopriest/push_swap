@@ -19,14 +19,16 @@ void	swapb(t_stacks *sk)
 	temp = sk->b[sk->btop];
 	sk->b[sk->btop] = sk->b[sk->btop - 1];
 	sk->b[sk->btop - 1] = temp;
+	sk->total++;
+	// putstr("SB\n");
 	printf_stack(sk);
-	putstr("SB\n");
 }
 
 void	pushb(t_stacks *sk)
 {
 	sk->a[++sk->atop] = sk->b[sk->btop];
 	sk->b[sk->btop--] = 0;
+	sk->total++;
+	// putstr("PB\n");
 	printf_stack(sk);
-	putstr("PB\n");
 }

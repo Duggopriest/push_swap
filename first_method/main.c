@@ -10,22 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// works but taks too many moves
 #include "push_swap.h"
-
-void shuffle(int *array, size_t n)
-{
-    if (n > 1) 
-    {
-        size_t i;
-        for (i = 1; i < n - 1; i++) 
-        {
-          size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
-          int t = array[j];
-          array[j] = array[i];
-          array[i] = t;
-        }
-    }
-}
 
 void	printf_stack(t_stacks *sk)
 {
@@ -38,24 +24,26 @@ void	printf_stack(t_stacks *sk)
 	printf("-------------------\n");
 	printf("    A%d  B%d	Q%d	C%d\n", sk->atop, sk->btop, sk->lengh, sk->current);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
-	usleep(5000000);
+	usleep(1000000);
 }
 
-void	sort(t_stacks *sk)
+void	sort_long(t_stacks *sk)
 {
 	int	i;
 	int	j;
 
-	i = sk->lengh / 2;
-	j = 0;
-	i++;
-	while(j++ < sk->lengh && !is_halveda(sk))
+	i = 0;
+	while(i++ < sk->lengh)
 	{
-		if (sk->a[sk->atop] < i)
-			pusha(sk);
-		else
-			rotatea(sk);
+		j = sk->current++;
+		while (j--)
+		{
+			top_checka(sk);
+			top_swapb(sk);
+		}
+		rev_sort(sk);
 	}
+	pushb(sk);
 }
 
 void	int_stacks(t_stacks *sk)
@@ -69,10 +57,9 @@ void	int_stacks(t_stacks *sk)
 	i = 0;
 	while (i <= sk->lengh)
 	{
-		a[i] = i;
+		a[i] = rand() % 99;
 		b[i++] = 0;
 	}
-	shuffle(a, sk->lengh);
 	sk->a = a;
 	sk->b = b;
 }
@@ -90,7 +77,7 @@ int	main(int argc, char **argv)
 	stack.current = 0;
 	stack.max = ft_atoi(argv[2]);
 	int_stacks(&stack);
-	printf_stack(&stack);
-	sort(&stack);
+	//printf_stack(&stack);
+	sort_long(&stack);
 	printf_stack(&stack);
 }
