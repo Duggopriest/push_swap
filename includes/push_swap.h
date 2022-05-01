@@ -28,6 +28,9 @@ typedef struct s_stacks {
 	int	max;
 }	t_stacks;
 
+
+void	sort(t_stacks *sk);
+
 int		ft_atoi(const char *str);
 void	pushb(t_stacks *sk);
 void	swapb(t_stacks *sk);
@@ -40,7 +43,8 @@ void	rev_sort(t_stacks *sk);
 void	printf_stack(t_stacks *sk);
 int		is_solved(t_stacks *sk);
 void	rotatea(t_stacks *sk);
-int		is_halveda(t_stacks *sk);
+int		is_halveda(t_stacks *sk, int half);
 int		is_halvedb(t_stacks *sk);
+int		find_halfa(t_stacks *sk);
 
 #endif

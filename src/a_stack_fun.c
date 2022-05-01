@@ -44,5 +44,6 @@ void	rotatea(t_stacks *sk)
 	while (--i)
 		sk->a[i] = sk->a[i - 1];
 	sk->a[1] = temp;
+	sk->total++;
 	printf_stack(sk);
 }

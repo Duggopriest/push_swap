@@ -32,28 +32,23 @@ int	is_solved(t_stacks *sk)
 	return (i);
 }
 
-int	is_halveda(t_stacks *sk)
+int	find_halfa(t_stacks *sk)
 {
 	int	i;
-	int	j;
+	int	min;
+	int	max;
 
-	i = sk->atop + 1;
-	j = sk->lengh / 2;
-	while (--i)
-		if (sk->a[i] < j)
-			return (0);
-	return (1);
-}
-
-int	is_halvedb(t_stacks *sk)
-{
-	int	i;
-	int	j;
-
-	i = sk->btop + 1;
-	j = sk->lengh / 2;
-	while (--i)
-		if (sk->b[i] < j)
-			return (1);
-	return (0);
+	i = -1;
+	min = 0;
+	max = 0;
+	while(++i < sk->atop)
+	{
+		if (sk->a[i] < min)
+			min = sk->a[i];
+		if (sk->a[i] > max)
+			max = sk->a[i];
+	}
+	if (min < 0)
+		return (((min + max) / 2) / 2);
+	return ((min + max) / 2);
 }

@@ -36,26 +36,9 @@ void	printf_stack(t_stacks *sk)
 	while (--i)
 		printf("%d->	| %i 	| %i 	|\n", i, sk->a[i], sk->b[i]);
 	printf("-------------------\n");
-	printf("    A%d  B%d	Q%d	C%d\n", sk->atop, sk->btop, sk->lengh, sk->current);
+	printf("    		A%d  B%d	Q%d	C%d\n", sk->atop, sk->btop, sk->lengh, sk->current);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
-	usleep(5000000);
-}
-
-void	sort(t_stacks *sk)
-{
-	int	i;
-	int	j;
-
-	i = sk->lengh / 2;
-	j = 0;
-	i++;
-	while(j++ < sk->lengh && !is_halveda(sk))
-	{
-		if (sk->a[sk->atop] < i)
-			pusha(sk);
-		else
-			rotatea(sk);
-	}
+	usleep(2000000);
 }
 
 void	int_stacks(t_stacks *sk)
