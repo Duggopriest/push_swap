@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:01:31 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/02 12:04:02 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:15:52 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ void	rev_sort(t_stacks *sk);
 void	printf_stack(t_stacks *sk);
 int		is_solved(t_stacks *sk);
 void	rotatea(t_stacks *sk);
+void	rotateb(t_stacks *sk);
 int		is_halveda(t_stacks *sk, int half);
 int		is_halvedb(t_stacks *sk);
 int		find_halfa(t_stacks *sk);
+int		find_halfb(t_stacks *sk);
 int		*apend_blocks(t_stacks *sk, int new_int);
 
 #endif

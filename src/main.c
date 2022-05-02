@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/02 13:16:31 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:01:37 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void	printf_stack(t_stacks *sk)
 	int			i;
 
 	i = sk->lengh + 1;
-	system("clear");
+	//system("clear");
 	while (--i)
 		printf("%d->	| %i 	| %i 	|\n", i, sk->a[i], sk->b[i]);
 	printf("-------------------\n");
 	printf("    		A%d  B%d	Q%d\n", sk->atop, sk->btop, sk->lengh);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
-	usleep(1000000);
+	usleep(500000);
 }
 
 void	int_stacks(t_stacks *sk)

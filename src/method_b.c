@@ -101,18 +101,44 @@ void	halfa(t_stacks *sk)
 	sk->blocks = apend_blocks(sk, j);
 }
 
-// void	put_back(t_stacks *sk)
-// {
-// 	int	i;
+void	halfb(t_stacks *sk)
+{
+	int	i;
+	int	j;
+	int	k;
 
-// 	i = 0;
-// }
+	k = sk->block_count;
+	i = find_halfb(sk);
+	j = sk->btop + 1;
+	while (--j > (sk->btop - sk->blocks[block]))
+	{
+		printf("(sk->btop - sk->blocks[block]) = %d\n", (sk->btop - sk->blocks[block]));
+		printf("block count = %d\n", sk->block_count);
+		printf("block[i] = %d\n", sk->blocks[block]);
+		if (sk->b[sk->btop] >= i)
+			pushb(sk);
+		else
+			rotateb(sk);
+	}
+	sk->block_count--;
+}
+
+void	put_back(t_stacks *sk)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	j = sk->block_count;
+	halfb(sk);
+	sk->block_count--;
+}
 
 void	sort(t_stacks *sk)
 {
 	while (sk->atop > 2)
 		halfa(sk);
-	// while (sk->block_count)
-	// 	put_back(sk);
 	top_swapa(sk);
+	while (sk->block_count)
+		put_back(sk);
 }
