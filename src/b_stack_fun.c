@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 04:47:59 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/02 11:16:15 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/02 19:19:39 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swapb(t_stacks *sk)
 
 void	pushb(t_stacks *sk)
 {
-	sk->btop++;
+	sk->atop++;
 	sk->a[sk->atop] = sk->b[sk->btop];
 	sk->b[sk->btop--] = 0;
 	sk->total++;

@@ -44,7 +44,7 @@ void	top_swapa(t_stacks *sk)
 void	top_swapb(t_stacks *sk)
 {
 	if (sk->btop > 1)
-		if (sk->b[sk->btop] > sk->b[sk->btop - 1])
+		if (sk->b[sk->btop] < sk->b[sk->btop - 1])
 			swapb(sk);
 }
 
@@ -110,26 +110,24 @@ void	halfb(t_stacks *sk)
 	k = sk->block_count;
 	i = find_halfb(sk);
 	j = sk->btop + 1;
-	while (--j > (sk->btop - sk->blocks[block]))
+	while (--j > (sk->btop - sk->blocks[k]))
 	{
-		printf("(sk->btop - sk->blocks[block]) = %d\n", (sk->btop - sk->blocks[block]));
-		printf("block count = %d\n", sk->block_count);
-		printf("block[i] = %d\n", sk->blocks[block]);
-		if (sk->b[sk->btop] >= i)
+		if (sk->b[sk->btop] > i)
 			pushb(sk);
 		else
 			rotateb(sk);
 	}
+	top_swapb(sk);
+	pushb(sk);
+	pushb(sk);
 	sk->block_count--;
 }
 
 void	put_back(t_stacks *sk)
 {
 	int	i;
-	int	j;
 
 	i = -1;
-	j = sk->block_count;
 	halfb(sk);
 	sk->block_count--;
 }
