@@ -90,19 +90,23 @@ void	halfa(t_stacks *sk)
 	int	j;
 
 	i = find_halfa(sk);
-	j = 0;
-	i++;
-	while(j++ < sk->lengh && !is_halveda(sk, i))
+	j = 1;
+	while(j++ < sk->atop)
 	{
-		if (sk->a[sk->atop] < i)
+		if (sk->a[sk->atop] <= i)
 			pusha(sk);
 		else
 			rotatea(sk);
+		printf("j = %d	i = %d\n", j, i);
 	}
+	sk->blocks = apend_blocks(sk, j);
 }
 
 void	sort(t_stacks *sk)
 {
 	while (sk->atop > 2)
+	{
 		halfa(sk);
+		printf("atop = %d\n", sk->atop);
+	}
 }

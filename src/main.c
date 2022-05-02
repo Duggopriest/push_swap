@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/30 07:56:54 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/02 11:55:43 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void	printf_stack(t_stacks *sk)
 	int			i;
 
 	i = sk->lengh + 1;
-	system("clear");
+	//system("clear");
 	while (--i)
 		printf("%d->	| %i 	| %i 	|\n", i, sk->a[i], sk->b[i]);
 	printf("-------------------\n");
 	printf("    		A%d  B%d	Q%d	C%d\n", sk->atop, sk->btop, sk->lengh, sk->current);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
-	usleep(2000000);
+	usleep(1000000);
 }
 
 void	int_stacks(t_stacks *sk)
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 	stack.atop = stack.lengh;
 	stack.btop = 0;
 	stack.total = 0;
-	stack.current = 0;
+	stack.block_count = 0;
 	stack.max = ft_atoi(argv[2]);
 	int_stacks(&stack);
 	printf_stack(&stack);

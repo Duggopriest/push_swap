@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:01:31 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/04/30 06:35:11 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/02 12:04:02 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct s_stacks {
 	int	lengh;
 	int	atop;
 	int	btop;
-	int	current;
+	int	*blocks;
+	int	block_count;
 	int	total;
 	int	max;
 }	t_stacks;
@@ -46,5 +47,6 @@ void	rotatea(t_stacks *sk);
 int		is_halveda(t_stacks *sk, int half);
 int		is_halvedb(t_stacks *sk);
 int		find_halfa(t_stacks *sk);
+int		*apend_blocks(t_stacks *sk, int new_int);
 
 #endif
