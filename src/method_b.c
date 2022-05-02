@@ -37,7 +37,7 @@ void	top_checkb(t_stacks *sk)
 void	top_swapa(t_stacks *sk)
 {
 	if (sk->atop > 1)
-		if (sk->a[sk->atop] < sk->a[sk->atop - 1])
+		if (sk->a[sk->atop] > sk->a[sk->atop - 1])
 			swapa(sk);
 }
 
@@ -97,16 +97,22 @@ void	halfa(t_stacks *sk)
 			pusha(sk);
 		else
 			rotatea(sk);
-		printf("j = %d	i = %d\n", j, i);
 	}
 	sk->blocks = apend_blocks(sk, j);
 }
 
+// void	put_back(t_stacks *sk)
+// {
+// 	int	i;
+
+// 	i = 0;
+// }
+
 void	sort(t_stacks *sk)
 {
 	while (sk->atop > 2)
-	{
 		halfa(sk);
-		printf("atop = %d\n", sk->atop);
-	}
+	// while (sk->block_count)
+	// 	put_back(sk);
+	top_swapa(sk);
 }
