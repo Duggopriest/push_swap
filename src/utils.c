@@ -53,22 +53,32 @@ int	find_halfa(t_stacks *sk)
 	return ((min + max) / 2);
 }
 
-int	find_halfb(t_stacks *sk)
+int	find_halfb(t_stacks *sk, int k)
 {
 	int	i;
 	int	min;
 	int	max;
 
-	i = 1;
+	i = 0;
+	while (i < sk->block_count)
+		printf("sk->blocks = %d\n", sk->blocks[i++]);
+
+	i = sk->btop;
 	max = 0;
-	while(++i < sk->btop)
+	printf("i = %d\n", i);
+	printf("sk->btop - sk->blocks[k] = %d\n", sk->btop - sk->blocks[k]);
+	while(--i >= sk->btop - sk->blocks[k])
+	{
+		printf("%d\n", sk->a[i]);
 		if (sk->a[i] > max)
 			max = sk->b[i];
-	i = 1;
+	}
+	i = sk->btop;
 	min = max;
-	while(++i < sk->btop)
+	while(--i >= sk->btop - sk->blocks[k])
 		if (sk->a[i] < min)
 			min = sk->b[i];
+	printf("min = %d	max = %d\n", min, max);
 	if (min < 0)
 		return (((min + max) / 2) / 2);
 	return ((min + max) / 2);

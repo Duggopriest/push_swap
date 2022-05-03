@@ -38,7 +38,7 @@ run4:
 	@make
 	@clear
 	@echo sorting
-	@./push_swap.out 11 50
+	@./push_swap.out 12 50
 
 git:
 	@clear

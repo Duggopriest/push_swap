@@ -48,7 +48,7 @@ void	rotateb(t_stacks *sk);
 int		is_halveda(t_stacks *sk, int half);
 int		is_halvedb(t_stacks *sk);
 int		find_halfa(t_stacks *sk);
-int		find_halfb(t_stacks *sk);
+int	find_halfb(t_stacks *sk, int k);
 int		*apend_blocks(t_stacks *sk, int new_int);
 
 #endif

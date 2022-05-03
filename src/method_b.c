@@ -99,6 +99,9 @@ void	halfa(t_stacks *sk)
 			rotatea(sk);
 	}
 	sk->blocks = apend_blocks(sk, j);
+	i = -1;
+	while (++i < sk->blocks[sk->block_count])
+		printf("block %d = %d\n", i, sk->blocks[i]);
 }
 
 void	halfb(t_stacks *sk)
@@ -108,28 +111,34 @@ void	halfb(t_stacks *sk)
 	int	k;
 
 	k = sk->block_count;
-	i = find_halfb(sk);
 	j = sk->btop + 1;
 	while (--j > (sk->btop - sk->blocks[k]))
 	{
-		if (sk->b[sk->btop] > i)
-			pushb(sk);
-		else
-			rotateb(sk);
+		i = find_halfb(sk, sk->blocks[k]);
+		printf("MID POINT %d\n", i);
+		while (sk->blocks[k] - 1)
+		{
+			if (sk->b[sk->btop] > i)
+			{	
+				pushb(sk);
+				sk->blocks[k]--;
+			}
+			else
+				rotateb(sk);
+		}
 	}
 	top_swapb(sk);
-	pushb(sk);
-	pushb(sk);
+	//pushb(sk);
 	sk->block_count--;
 }
 
 void	put_back(t_stacks *sk)
 {
-	int	i;
-
-	i = -1;
-	halfb(sk);
-	sk->block_count--;
+	while (sk->block_count)
+	{
+		halfb(sk);
+		sk->block_count--;
+	}
 }
 
 void	sort(t_stacks *sk)
@@ -137,6 +146,5 @@ void	sort(t_stacks *sk)
 	while (sk->atop > 2)
 		halfa(sk);
 	top_swapa(sk);
-	while (sk->block_count)
-		put_back(sk);
+	put_back(sk);
 }
