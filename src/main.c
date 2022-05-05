@@ -6,25 +6,25 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/02 19:28:00 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:59:17 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void shuffle(int *array, size_t n)
+void	shuffle(int *array, size_t n)
 {
-    if (n > 1) 
-    {
-        size_t i;
-        for (i = 1; i < n - 1; i++) 
-        {
-          size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
-          int t = array[j];
-          array[j] = array[i];
-          array[i] = t;
-        }
-    }
+	if (n > 1)
+	{
+		size_t i;
+		for (i = 1; i < n - 1; i++)
+		{
+			size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
+			int t = array[j];
+			array[j] = array[i];
+			array[i] = t;
+		}
+	}
 }
 
 void	printf_stack(t_stacks *sk)
@@ -34,7 +34,7 @@ void	printf_stack(t_stacks *sk)
 	i = sk->lengh + 1;
 	//system("clear");
 	while (--i)
-		printf("%d->	| %i 	| %i 	|\n", i, sk->a[i], sk->b[i]);
+		printf("%d->	| %i 	| %i 	|\n", i - 1, sk->a[i], sk->b[i]);
 	printf("-------------------\n");
 	printf("    		A%d  B%d	Q%d\n", sk->atop, sk->btop, sk->lengh);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
@@ -74,6 +74,12 @@ int	main(int argc, char **argv)
 	stack.max = ft_atoi(argv[2]);
 	int_stacks(&stack);
 	printf_stack(&stack);
-	sort(&stack);
+	printf("ARGC = %d\n", argc);
+	if (argv[1][0] == '3')
+		sort_3(&stack);
+	else if (argv[1][0] == '5')
+		sort_5(&stack);
+	else
+		sort(&stack);
 	printf_stack(&stack);
 }
