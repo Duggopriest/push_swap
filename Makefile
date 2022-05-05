@@ -6,7 +6,7 @@
 #    By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 13:29:03 by jgobbett          #+#    #+#              #
-#    Updated: 2022/05/05 16:19:49 by jgobbett         ###   ########.fr        #
+#    Updated: 2022/05/05 17:25:48 by jgobbett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,43 +20,49 @@ NAME = push_swap.out
 all:
 	@clear
 	@echo -n Compiling push_swap...
+	@gcc $(SRC) $(INCS) $(FLAGS) -o $(NAME)
+	@echo Done
+
+display:
+	@clear
+	@echo -n Compiling push_swap...
 	@gcc $(SRCD) $(INCS) $(FLAGS) -o $(NAME)
 	@echo Done
 
 # Run "$>ARG="<5 random values>"; ./push_swap $ARG | ./checker_OS $ARG"
 
-run:
+test:
 	@make
 	@clear
-	ARG="<5 random values>";
-	./push_swap $ARG;
+	@echo
+	@./push_swap.out -42 5
 
 run0:
-	@make
+	@make display
 	@clear
 	@echo sorting
 	@./push_swap.out 3 3
 
 run1:
-	@make
+	@make display
 	@clear
 	@echo sorting
 	@./push_swap.out 5 12
 
 run2:
-	@make
+	@make display
 	@clear
 	@echo sorting
 	@./push_swap.out 100 1500
 
 run3:
-	@make
+	@make display
 	@clear
 	@echo sorting
 	@./push_swap.out 500 11500
 
 run4:
-	@make
+	@make display
 	@clear
 	@echo sorting
 	@./push_swap.out 12 50

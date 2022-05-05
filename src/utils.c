@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 06:03:32 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 16:05:50 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:20:40 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	find_min(t_stacks *sk)
 	int	max;
 
 	i = -1;
-	max = 0;
+	max = -2147483647;
 	while (++i < sk->lengh)
 		if (sk->a[i] > max)
 			max = sk->a[i];
@@ -47,7 +47,7 @@ int	find_next_min(t_stacks *sk, int last)
 	int	max;
 
 	i = -1;
-	max = 0;
+	max = -2147483647;
 	while (++i < sk->lengh)
 		if (sk->a[i] > max)
 			max = sk->a[i];
@@ -89,8 +89,17 @@ int	array_checker(int argc, char **argv)
 
 	j = 0;
 	while (++j < argc)
+	{
+		i = 0;
 		while (argv[j][i])
-			if (argv[j][i] < '0' || argv[j][i] > '9')
-				return (1);
+		{
+			if ((argv[j][i] < '0' || argv[j][i] > '9') && argv[j][i] != '-')
+			{
+				putstr("Error\n");
+				exit(1);
+			}
+			i++;
+		}
+	}
 	return (0);
 }

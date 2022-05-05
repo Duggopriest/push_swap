@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 16:22:58 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:46:31 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	printf_stack(t_stacks *sk)
 	printf("-------------------\n");
 	printf("    		A%d  B%d	Q%d\n", sk->atop, sk->btop, sk->lengh);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
-	//usleep(1000);
+	usleep(1000);
 }
 
 void	int_stacks(t_stacks *sk)
@@ -69,6 +69,7 @@ int	main(int argc, char **argv)
 	stack.lengh = ft_atoi(argv[1]);
 	stack.atop = stack.lengh;
 	stack.btop = 0;
+	stack.max = ft_atoi(argv[2]);
 	int_stacks(&stack);
 	printf_stack(&stack);
 	printf("ARGC = %d\n", argc);
