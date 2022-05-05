@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 17:26:20 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:55:06 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	printf_stack(t_stacks *sk)
 	int			i;
 
 	i = sk->lengh + 1;
-	system("clear");
+	//system("clear");
 	while (--i)
 		printf("%d->	| %i 	| %i 	|\n", i - 1, sk->a[i], sk->b[i]);
 	printf("-------------------\n");
@@ -47,7 +47,7 @@ void	norminize(t_stacks *sk)
 	}
 }
 
-void	int_stacks(t_stacks *sk)
+void	int_stacks(t_stacks *sk, char **argv)
 {
 	int	*a;
 	int	*b;
@@ -58,13 +58,13 @@ void	int_stacks(t_stacks *sk)
 	i = 0;
 	while (i <= sk->lengh)
 	{
-		a[i] = i;
+		a[i] = ft_atoi(argv[i]);
 		b[i++] = 0;
 	}
-	printf_stack(sk);
-	norminize(sk);
 	sk->a = a;
 	sk->b = b;
+	printf_stack(sk);
+	norminize(sk);
 }
 
 void	top_checka(t_stacks *sk)
@@ -83,7 +83,7 @@ int	main(int argc, char **argv)
 	stack.lengh = argc - 1;
 	stack.atop = stack.lengh;
 	stack.btop = 0;
-	int_stacks(&stack);
+	int_stacks(&stack, argv);
 	printf_stack(&stack);
 	if (is_solved(&stack))
 		return (0);
