@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 06:03:32 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 14:01:51 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 13:50:53 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,44 +32,47 @@ int	is_solved(t_stacks *sk)
 	return (i);
 }
 
-int	find_min(t_stacks *sk)
+int	find_halfb(t_stacks *sk, int k)
 {
 	int	i;
 	int	min;
 	int	max;
 
-	i = 1;
+	i = 0;
+	while (i < sk->block_count)
+		printf("sk->blocks = %d\n", sk->blocks[i++]);
+	i = sk->btop;
 	max = 0;
-	while (++i < sk->lengh)
-		if (sk->c[i] > max)
-			max = sk->c[i];
-	i = 1;
+	printf("i = %d\n", i);
+	printf("sk->btop - sk->blocks[k] = %d\n", sk->btop - sk->blocks[k]);
+	while(--i >= sk->btop - sk->blocks[k])
+	{
+		printf("%d\n", sk->a[i]);
+		if (sk->a[i] > max)
+			max = sk->b[i];
+	}
+	i = sk->btop;
 	min = max;
-	while (++i < sk->lengh)
-		if (sk->c[i] < min)
-			min = sk->c[i];
-	return (min);
+	while(--i >= sk->btop - sk->blocks[k])
+		if (sk->a[i] < min)
+			min = sk->b[i];
+	printf("min = %d	max = %d\n", min, max);
+	if (min < 0)
+		return (((min + max) / 2) / 2);
+	return ((min + max) / 2);
 }
 
-int	ft_atoi(const char *str)
+int	*apend_blocks(t_stacks *sk, int new_int)
 {
-	int	num;
-	int	sign;
-	int	brd;
+	int	i;
+	int	*new;
 
-	num = 0;
-	sign = 1;
-	brd = 1;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
-	{
-		if (brd < 1)
-			return (brd);
-		num = (num * 10) + (*str - '0');
-		str++;
-	}
-	return (num * sign);
+	i = -1;
+	new = malloc(sizeof(int) * sk->block_count + 1);
+	while (++i < sk->block_count)
+		new[i] = sk->blocks[i];
+	sk->block_count++;
+	new[i] = new_int;
+	free(sk->blocks);
+	return (new);
 }

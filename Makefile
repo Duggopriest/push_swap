@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/05/05 13:29:03 by jgobbett          #+#    #+#              #
+#    Updated: 2022/05/05 13:36:30 by jgobbett         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 INC = includes
 SRC = src/*.c
 INCS = -I$(INC)
@@ -9,6 +21,14 @@ all:
 	@echo -n Compiling push_swap...
 	@gcc $(SRC) $(INCS) $(FLAGS) -o $(NAME)
 	@echo Done
+
+# Run "$>ARG="<5 random values>"; ./push_swap $ARG | ./checker_OS $ARG"
+
+run:
+	@make
+	@clear
+	ARG="<5 random values>";
+	./push_swap $ARG;
 
 run0:
 	@make

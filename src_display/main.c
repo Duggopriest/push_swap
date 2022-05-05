@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:06:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 14:10:43 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 14:02:59 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,12 @@ void	shuffle(int *array, size_t n)
 	}
 }
 
-void	norminize(t_stacks *sk, char **argv)
-{
-	int	min;
-	int	i;
-	int	j;
+// void	norminize(t_stacks *sk, char **argv)
+// {
+// 	int	min;
 
-	min = find_min(sk);
-	i = 0;
-	j = 0;
-	while (min < sk->lengh)
-	{
-		if (min == sk->c[])
-			sk->a[] = 
-	}
-}
+// 	min = find_min(sk);
+// }
 
 void	printf_stack(t_stacks *sk)
 {
