@@ -6,12 +6,13 @@
 #    By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 13:29:03 by jgobbett          #+#    #+#              #
-#    Updated: 2022/05/05 13:36:30 by jgobbett         ###   ########.fr        #
+#    Updated: 2022/05/05 16:19:49 by jgobbett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 INC = includes
 SRC = src/*.c
+SRCD = src_display/*.c
 INCS = -I$(INC)
 FLAGS = -Wall -Wextra -Werror
 NAME = push_swap.out
@@ -19,7 +20,7 @@ NAME = push_swap.out
 all:
 	@clear
 	@echo -n Compiling push_swap...
-	@gcc $(SRC) $(INCS) $(FLAGS) -o $(NAME)
+	@gcc $(SRCD) $(INCS) $(FLAGS) -o $(NAME)
 	@echo Done
 
 # Run "$>ARG="<5 random values>"; ./push_swap $ARG | ./checker_OS $ARG"

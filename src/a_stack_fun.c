@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 04:48:04 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/02 11:15:53 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:18:36 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	swapa(t_stacks *sk)
 	sk->a[sk->atop] = sk->a[sk->atop - 1];
 	sk->a[sk->atop - 1] = temp;
 	sk->total++;
-	// putstr("SA\n");
-	printf_stack(sk);
+	putstr("sa\n");
 }
 
 void	pusha(t_stacks *sk)
@@ -30,8 +29,7 @@ void	pusha(t_stacks *sk)
 	sk->b[sk->btop] = sk->a[sk->atop];
 	sk->a[sk->atop--] = 0;
 	sk->total++;
-	// putstr("PA\n");
-	printf_stack(sk);
+	putstr("pa\n");
 }
 
 void	rotatea(t_stacks *sk)
@@ -45,5 +43,5 @@ void	rotatea(t_stacks *sk)
 		sk->a[i] = sk->a[i - 1];
 	sk->a[1] = temp;
 	sk->total++;
-	printf_stack(sk);
+	putstr("ra\n");
 }

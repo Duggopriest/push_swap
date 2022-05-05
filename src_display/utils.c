@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 06:03:32 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 14:01:51 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:21:06 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,6 @@ int	is_solved(t_stacks *sk)
 		if (sk->a[i] > sk->a[i + 1])
 			return (0);
 	return (i);
-}
-
-int	find_min(t_stacks *sk)
-{
-	int	i;
-	int	min;
-	int	max;
-
-	i = 1;
-	max = 0;
-	while (++i < sk->lengh)
-		if (sk->c[i] > max)
-			max = sk->c[i];
-	i = 1;
-	min = max;
-	while (++i < sk->lengh)
-		if (sk->c[i] < min)
-			min = sk->c[i];
-	return (min);
 }
 
 int	ft_atoi(const char *str)

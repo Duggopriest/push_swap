@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 06:03:32 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 14:01:51 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:05:50 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,41 @@ void	putstr(char *str)
 		write(1, &str[i++], 1);
 }
 
-int	is_solved(t_stacks *sk)
-{
-	int	i;
-
-	i = -1;
-	while (++i < sk->lengh && sk->atop == sk->lengh)
-		if (sk->a[i] > sk->a[i + 1])
-			return (0);
-	return (i);
-}
-
 int	find_min(t_stacks *sk)
 {
 	int	i;
 	int	min;
 	int	max;
 
-	i = 1;
+	i = -1;
 	max = 0;
 	while (++i < sk->lengh)
-		if (sk->c[i] > max)
-			max = sk->c[i];
-	i = 1;
+		if (sk->a[i] > max)
+			max = sk->a[i];
+	i = -1;
 	min = max;
+	while (++i < 5)
+		if (sk->a[i] < min)
+			min = sk->a[i];
+	return (min);
+}
+
+int	find_next_min(t_stacks *sk, int last)
+{
+	int	i;
+	int	min;
+	int	max;
+
+	i = -1;
+	max = 0;
 	while (++i < sk->lengh)
-		if (sk->c[i] < min)
-			min = sk->c[i];
+		if (sk->a[i] > max)
+			max = sk->a[i];
+	i = -1;
+	min = max;
+	while (++i < 5)
+		if (sk->a[i] <= min && sk->a[i] > last)
+			min = sk->a[i];
 	return (min);
 }
 
@@ -72,4 +80,17 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (num * sign);
+}
+
+int	array_checker(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (++j < argc)
+		while (argv[j][i])
+			if (argv[j][i] < '0' || argv[j][i] > '9')
+				return (1);
+	return (0);
 }
