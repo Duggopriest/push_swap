@@ -20,11 +20,10 @@
 typedef struct s_stacks {
 	int	*a;
 	int	*b;
+	int	*c;
 	int	lengh;
 	int	atop;
 	int	btop;
-	int	*blocks;
-	int	block_count;
 	int	total;
 	int	max;
 }	t_stacks;

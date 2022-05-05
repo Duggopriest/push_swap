@@ -31,6 +31,8 @@ void	sort_bit(t_stacks *sk)
 
 	i = 0;
 	j = 0;
+	printf("sortting\n");
+	printf_stack(sk);
 	while (!is_solved(sk))
 	{
 		j = sk->atop;

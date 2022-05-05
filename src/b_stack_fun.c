@@ -30,6 +30,7 @@ void	pushb(t_stacks *sk)
 	sk->b[sk->btop--] = 0;
 	sk->total++;
 	putstr("pb\n");
+	printf_stack(sk);
 }
 
 void	rotateb(t_stacks *sk)

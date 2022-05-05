@@ -25,18 +25,14 @@ int	find_min(t_stacks *sk)
 {
 	int	i;
 	int	min;
-	int	max;
 
 	i = -1;
-	max = -2147483647;
-	while (++i < sk->lengh)
-		if (sk->a[i] > max)
-			max = sk->a[i];
-	i = -1;
-	min = max;
-	while (++i < 5)
-		if (sk->a[i] < min)
-			min = sk->a[i];
+	min = 2147483647;
+	while (++i <= sk->lengh)
+	{
+		if (sk->c[i] <= min)
+			min = sk->c[i];
+	}
 	return (min);
 }
 
@@ -44,18 +40,12 @@ int	find_next_min(t_stacks *sk, int last)
 {
 	int	i;
 	int	min;
-	int	max;
 
 	i = -1;
-	max = -2147483647;
+	min = 2147483647;
 	while (++i < sk->lengh)
-		if (sk->a[i] > max)
-			max = sk->a[i];
-	i = -1;
-	min = max;
-	while (++i < 5)
-		if (sk->a[i] <= min && sk->a[i] > last)
-			min = sk->a[i];
+		if (sk->c[i] <= min && sk->c[i] > last)
+			min = sk->c[i];
 	return (min);
 }
 

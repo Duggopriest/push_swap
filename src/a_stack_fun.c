@@ -30,6 +30,7 @@ void	pusha(t_stacks *sk)
 	sk->a[sk->atop--] = 0;
 	sk->total++;
 	putstr("pa\n");
+	printf_stack(sk);
 }
 
 void	rotatea(t_stacks *sk)
@@ -44,4 +45,5 @@ void	rotatea(t_stacks *sk)
 	sk->a[1] = temp;
 	sk->total++;
 	putstr("ra\n");
+	printf_stack(sk);
 }
