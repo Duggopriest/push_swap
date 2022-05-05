@@ -35,13 +35,7 @@ test:
 	@make
 	@clear
 	@echo
-	@./push_swap.out -42 5 -432 -23 53 10
-
-test2:
-	@make
-	@clear
-	@echo
-	@./push_swap.out -6 5 -4 -3 2 1
+	@./push_swap.out -65 53 -42 -39 26 13
 
 run0:
 	@make display

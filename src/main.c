@@ -23,7 +23,7 @@ void	printf_stack(t_stacks *sk)
 	printf("-------------------\n");
 	printf("    		A%d  B%d	Q%d\n", sk->atop, sk->btop, sk->lengh);
 	printf("Count	%d / %d Max\n", sk->total, sk->max);
-	usleep(1000);
+	//usleep(1000000);
 }
 
 void	norminize(t_stacks *sk)
@@ -68,7 +68,6 @@ void	int_stacks(t_stacks *sk, char **argv)
 	sk->a = a;
 	sk->b = b;
 	sk->c = c;
-	printf("int stackes\n");
 	printf_stack(sk);
 	norminize(sk);
 	printf_stack(sk);
