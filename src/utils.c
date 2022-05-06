@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/30 06:03:32 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 17:20:40 by jgobbett         ###   ########.fr       */
+/*   Created: 2022/05/06 11:50:53 by marvin            #+#    #+#             */
+/*   Updated: 2022/05/06 11:50:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	find_min(t_stacks *sk)
 
 	i = -1;
 	min = 2147483647;
-	while (++i <= sk->lengh)
+	while (++i < sk->lengh)
 	{
-		if (sk->c[i] <= min)
+		if (sk->c[i] < min)
 			min = sk->c[i];
 	}
 	return (min);
@@ -44,7 +44,7 @@ int	find_next_min(t_stacks *sk, int last)
 	i = -1;
 	min = 2147483647;
 	while (++i < sk->lengh)
-		if (sk->c[i] <= min && sk->c[i] > last)
+		if (sk->c[i] < min && sk->c[i] > last)
 			min = sk->c[i];
 	return (min);
 }

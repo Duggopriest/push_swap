@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 13:29:03 by jgobbett          #+#    #+#              #
-#    Updated: 2022/05/05 18:56:29 by jgobbett         ###   ########.fr        #
+#    Updated: 2022/05/06 13:35:23 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,14 @@ display:
 	@gcc $(SRCD) $(INCS) $(FLAGS) -o $(NAME)
 	@echo Done
 
-# Run "$>ARG="<5 random values>"; ./push_swap $ARG | ./checker_OS $ARG"
+checker:
+	Run "$>ARG="-100 -50 0 50 100"; ./push_swap $ARG | ./checker_OS $ARG"
 
 test:
 	@make
 	@clear
 	@echo
-	@./push_swap.out -65 53 -42 -39 26 13
+	@./push_swap.out -1 -2 -3 -4 -50 -6 -7 -8 -9 13 456 12 789 32 45
 
 run0:
 	@make display
@@ -80,4 +81,4 @@ clean:
 
 norm:
 	@clear
-	@norminette $(INC) $(SRC)
+	@norminette includes/push_swap.h $(SRC)

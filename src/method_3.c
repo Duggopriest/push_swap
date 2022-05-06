@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   method_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:35:28 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/04 15:23:36 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/06 12:23:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	sort_3(t_stacks *sk)
 {
-	if (sk->a[2] == 1 && sk->a[3] == 2)
+	if (sk->a[1] == 1 && sk->a[2] == 2)
 		swapa(sk);
-	else if (sk->a[1] == 1 && sk->a[3] == 2)
+	else if (sk->a[0] == 1 && sk->a[2] == 2)
 		rotatea(sk);
-	else if (sk->a[3] == 3 && sk->a[1] == 1)
+	else if (sk->a[2] == 3 && sk->a[0] == 1)
 	{
 		rotatea(sk);
 		swapa(sk);

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   method_5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:25:20 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/06 11:38:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/05/05 13:09:04 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_display.h"
+#include "push_swap.h"
 
 void	sortb_3(t_stacks *sk)
 {

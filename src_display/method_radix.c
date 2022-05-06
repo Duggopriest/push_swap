@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   method_radix.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 12:31:10 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 12:51:51 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:39:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_display.h"
 
 void	sort_bit(t_stacks *sk)
 {

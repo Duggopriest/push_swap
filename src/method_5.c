@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   method_5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:25:20 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/05 13:09:04 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/06 12:41:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	rotateb(t_stacks *sk)
+{
+	int	i;
+	int	temp;
+
+	i = sk->btop + 1;
+	temp = sk->b[sk->btop];
+	while (--i)
+		sk->b[i] = sk->b[i - 1];
+	sk->b[0] = temp;
+	sk->total++;
+	putstr("rb\n");
+}
 
 void	sortb_3(t_stacks *sk)
 {
@@ -23,21 +37,20 @@ void	sortb_3(t_stacks *sk)
 		rotateb(sk);
 		swapb(sk);
 	}
-	pushb(sk);
-	pushb(sk);
-	pushb(sk);
+	pusha(sk);
+	pusha(sk);
+	pusha(sk);
 }
 
 void	sort_5(t_stacks *sk)
 {
-	printf("working\n");
 	int	i;
 
 	i = -1;
 	while (++i < 5)
 	{
 		if (sk->a[i] >= 3)
-			pusha(sk);
+			pushb(sk);
 		else
 			rotatea(sk);
 	}

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   b_stack_fun.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 04:47:59 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/02 19:19:39 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:38:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_display.h"
 
 void	swapb(t_stacks *sk)
 {
