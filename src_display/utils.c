@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/30 06:03:32 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/06 11:39:12 by marvin           ###   ########.fr       */
+/*   Created: 2022/05/06 11:50:53 by marvin            #+#    #+#             */
+/*   Updated: 2022/05/06 11:50:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_display.h"
+#include "push_swap.h"
 
 void	putstr(char *str)
 {
@@ -21,15 +21,32 @@ void	putstr(char *str)
 		write(1, &str[i++], 1);
 }
 
-int	is_solved(t_stacks *sk)
+int	find_min(t_stacks *sk)
 {
 	int	i;
+	int	min;
 
 	i = -1;
-	while (++i < sk->lengh && sk->atop == sk->lengh)
-		if (sk->a[i] > sk->a[i + 1])
-			return (0);
-	return (i);
+	min = 2147483647;
+	while (++i < sk->lengh)
+	{
+		if (sk->c[i] < min)
+			min = sk->c[i];
+	}
+	return (min);
+}
+
+int	find_next_min(t_stacks *sk, int last)
+{
+	int	i;
+	int	min;
+
+	i = -1;
+	min = 2147483647;
+	while (++i < sk->lengh)
+		if (sk->c[i] < min && sk->c[i] > last)
+			min = sk->c[i];
+	return (min);
 }
 
 int	ft_atoi(const char *str)
@@ -53,4 +70,26 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (num * sign);
+}
+
+int	array_checker(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (++j < argc)
+	{
+		i = 0;
+		while (argv[j][i])
+		{
+			if ((argv[j][i] < '0' || argv[j][i] > '9') && argv[j][i] != '-')
+			{
+				putstr("Error\n");
+				exit(1);
+			}
+			i++;
+		}
+	}
+	return (0);
 }
