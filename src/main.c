@@ -21,8 +21,8 @@ void	print_stacks(t_stacks *sk)
 	while (++i < sk->lengh)
 		printf("%d	->| %d 	| %d 	| %d |\n", i + 1, sk->a[i], sk->b[i], sk->c[i]);
 	printf("----------------------\n");
-	printf("Q%d A%d   B%d   M%d	B%d\n", sk->lengh, sk->atop, sk->btop, sk->total, sk->bit);
-	//usleep(800000);
+	printf("Q%d A%d   B%d   M%d\n", sk->lengh, sk->atop, sk->btop, sk->total);
+	usleep(800000);
 }
 
 void	make_sequential(t_stacks *sk)
@@ -71,6 +71,13 @@ void	int_stacks(t_stacks *sk, char **argv)
 	print_stacks(sk);
 }
 
+void	top_checka(t_stacks *sk)
+{
+	if (sk->a[sk->atop] > sk->a[sk->atop - 1])
+		swapa(sk);
+	exit(0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks sk;
@@ -81,6 +88,15 @@ int	main(int argc, char **argv)
 	sk.atop = sk.lengh - 1;
 	int_stacks(&sk, argv);
 	print_stacks(&sk);
-	radix(&sk);
+	if (argc == 2 || is_solved(&sk))
+		return (0);
+	else if (argc == 3)
+		top_checka(&sk);
+	else if (argc == 4)
+		sort_3(&sk);
+	else if (argc == 6)
+		sort_5(&sk);
+	else
+		radix(&sk);
 	print_stacks(&sk);
 }

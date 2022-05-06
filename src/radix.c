@@ -31,7 +31,6 @@ void	radix(t_stacks *sk)
 
 	i = 0;
 	j = 0;
-	printf("sorting\n");
 	while (!is_solved(sk))
 	{
 		sk->bit = i;
