@@ -37,7 +37,7 @@ void	radix(t_stacks *sk)
 		j = sk->atop;
 		while (j-- >= 0)
 		{
-			b = sk->a[sk->atop];
+			b = sk->a[0];
 			if (b & (1 << i))
 				pushb(sk);
 			else

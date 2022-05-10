@@ -72,24 +72,27 @@ int	ft_atoi(const char *str)
 	return (num * sign);
 }
 
-int	array_checker(int argc, char **argv)
+void	array_no_rep(t_stacks *sk)
 {
 	int	i;
 	int	j;
+	int	len;
+	int	*str;
 
-	j = 0;
-	while (++j < argc)
+	i = 0;
+	len = 0;
+	str = malloc(sizeof(int) * sk->lengh);
+	while (i < sk->lengh)
 	{
-		i = 0;
-		while (argv[j][i])
+		j = 0;
+		while (i < len)
 		{
-			if ((argv[j][i] < '0' || argv[j][i] > '9') && argv[j][i] != '-')
+			if (str[i] == sk->c[i])
 			{
 				putstr("Error\n");
 				exit(1);
 			}
-			i++;
 		}
+		str[++len] = sk->c[i++];
 	}
-	return (0);
 }

@@ -14,20 +14,36 @@
 
 void	pusha(t_stacks *sk)
 {
+	int	i;
+
+	i = sk->atop + 2;
+	while (--i >= 0)
+		sk->a[i] = sk->a[i - 1];
+	sk->a[0] = sk->b[0];
+	i = -1;
+	while (++i <= sk->btop)
+		sk->b[i] = sk->b[i + 1];
+	sk->b[sk->btop] = 0;
+	sk->btop--;
 	sk->atop++;
-	sk->a[sk->atop] = sk->b[sk->btop];
-	sk->b[sk->btop--] = 0;
-	sk->total++;
-	//putstr("pa\n");
+	//putstr("pb\n");
 	print_stacks(sk);
 }
 
 void	pushb(t_stacks *sk)
 {
+	int	i;
+
+	i = sk->btop + 2;
+	while (--i >= 0)
+		sk->b[i] = sk->b[i - 1];
+	sk->b[0] = sk->a[0];
+	i = -1;
+	while (++i <= sk->atop)
+		sk->a[i] = sk->a[i + 1];
+	sk->a[sk->atop] = 0;
+	sk->atop--;
 	sk->btop++;
-	sk->b[sk->btop] = sk->a[sk->atop];
-	sk->a[sk->atop--] = 0;
-	sk->total++;
 	//putstr("pb\n");
 	print_stacks(sk);
 }
@@ -37,12 +53,11 @@ void	rotatea(t_stacks *sk)
 	int	i;
 	int	temp;
 
-	i = sk->atop + 1;
+	i = sk->atop;
 	temp = sk->a[sk->atop];
-	while (--i)
-		sk->a[i] = sk->a[i - 1];
+	while (--i >= 0)
+		sk->a[i + 1] = sk->a[i];
 	sk->a[0] = temp;
-	sk->total++;
 	//putstr("ra\n");
 	print_stacks(sk);
 }
