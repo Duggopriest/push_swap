@@ -90,6 +90,11 @@ int	array_checker(int argc, char **argv)
 			}
 			i++;
 		}
+		if (checkoverflow(argv[j]))
+		{
+			putstr("Error\n");
+			exit(1);
+		}
 	}
 	return (0);
 }

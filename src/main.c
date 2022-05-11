@@ -35,7 +35,7 @@ void	make_sequential(t_stacks *sk)
 
 void	int_stacks(t_stacks *sk, char **argv)
 {
-	int *a;
+	int	*a;
 	int	*b;
 	int	*c;
 	int	i;
@@ -54,6 +54,7 @@ void	int_stacks(t_stacks *sk, char **argv)
 	sk->a = a;
 	sk->b = b;
 	sk->c = c;
+	array_no_rep(sk);
 	make_sequential(sk);
 }
 
@@ -64,44 +65,28 @@ void	top_checka(t_stacks *sk)
 	exit(0);
 }
 
-// void	rotateb(t_stacks *sk)
-// {
-// 	int	i;
-// 	int	temp;
+void	free_stacks(t_stacks *sk)
+{
+	void	*temp;
 
-// 	i = sk->btop;
-// 	temp = sk->b[sk->btop];
-// 	while (--i >= 0)
-// 		sk->b[i + 1] = sk->b[i];
-// 	sk->b[0] = temp;
-// 	//putstr("ra\n");
-// 	print_stacks(sk);
-// }
-
-// int	main(int argc, char **argv)
-// {
-// 	t_stacks sk;
-
-// 	sk.lengh = argc - 1;
-// 	sk.total = 0;
-// 	sk.btop = -1;
-// 	sk.atop = sk.lengh - 1;
-// 	int_stacks(&sk, argv);
-// 	print_stacks(&sk);
-// 	rotatea(&sk);
-// 	//revrotatea(&sk);
-// 	print_stacks(&sk);
-// }
+	temp = sk->a;
+	free(temp);
+	temp = sk->b;
+	free(temp);
+	temp = sk->c;
+	free(temp);
+}
 
 int	main(int argc, char **argv)
 {
-	t_stacks sk;
+	t_stacks	sk;
 
 	sk.lengh = argc - 1;
 	sk.total = 0;
 	sk.btop = -1;
 	sk.atop = sk.lengh - 1;
 	int_stacks(&sk, argv);
+	array_checker(argc, argv);
 	if (argc == 2 || is_solved(&sk))
 		return (0);
 	else if (argc == 3)
@@ -112,4 +97,5 @@ int	main(int argc, char **argv)
 		sort_5(&sk);
 	else
 		radix(&sk);
+	free_stacks(&sk);
 }

@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:01:31 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/11 11:29:00 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:51:04 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	revrotatea(t_stacks *sk);
 
 void	radix(t_stacks *sk);
 int		is_solved(t_stacks *sk);
+int		checkoverflow(char *str);
+void	free_stacks(t_stacks *sk);
 void	array_no_rep(t_stacks *sk);
+int		array_checker(int argc, char **argv);
 
 int		find_min(t_stacks *sk);
 int		find_next_min(t_stacks *sk, int last);
