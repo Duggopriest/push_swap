@@ -22,7 +22,7 @@ void	print_stacks(t_stacks *sk)
 		printf("%d	->| %d 	| %d 	| %d |\n", i + 1, sk->a[i], sk->b[i], sk->c[i]);
 	printf("----------------------\n");
 	printf("Q%d A%d   B%d   M%d	bit=%d\n", sk->lengh, sk->atop, sk->btop, sk->total, sk->bit);
-	usleep(500000);
+	//usleep(500000);
 }
 
 void	make_sequential(t_stacks *sk)
@@ -69,7 +69,7 @@ void	int_stacks(t_stacks *sk, char **argv)
 	sk->c = c;
 	make_sequential(sk);
 	print_stacks(sk);
-	usleep(1000000);
+	usleep(500000);
 }
 
 void	top_checka(t_stacks *sk)
@@ -77,6 +77,20 @@ void	top_checka(t_stacks *sk)
 	if (sk->a[1] > sk->a[0])
 		swapa(sk);
 	exit(0);
+}
+
+void	rotateb(t_stacks *sk)
+{
+	int	i;
+	int	temp;
+
+	i = sk->btop;
+	temp = sk->b[sk->btop];
+	while (--i >= 0)
+		sk->b[i + 1] = sk->b[i];
+	sk->b[0] = temp;
+	//putstr("ra\n");
+	print_stacks(sk);
 }
 
 // int	main(int argc, char **argv)
@@ -89,8 +103,8 @@ void	top_checka(t_stacks *sk)
 // 	sk.atop = sk.lengh - 1;
 // 	int_stacks(&sk, argv);
 // 	print_stacks(&sk);
-// 	pushb(&sk);
 // 	rotatea(&sk);
+// 	//revrotatea(&sk);
 // 	print_stacks(&sk);
 // }
 

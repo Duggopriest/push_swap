@@ -6,7 +6,7 @@
 /*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 04:01:31 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/09 18:43:46 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/11 11:29:00 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	pushb(t_stacks *sk);
 void	rotatea(t_stacks *sk);
 void	swapa(t_stacks *sk);
 void	swapb(t_stacks *sk);
+void	revrotatea(t_stacks *sk);
 
 void	radix(t_stacks *sk);
 int		is_solved(t_stacks *sk);

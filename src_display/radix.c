@@ -38,7 +38,7 @@ void	radix(t_stacks *sk)
 		while (j-- >= 0)
 		{
 			b = sk->a[0];
-			if (b & (1 << i))
+			if (!(b & (1 << i)))
 				pushb(sk);
 			else
 				rotatea(sk);

@@ -54,49 +54,53 @@ void	int_stacks(t_stacks *sk, char **argv)
 	sk->a = a;
 	sk->b = b;
 	sk->c = c;
-	//array_no_rep(sk);
 	make_sequential(sk);
 }
 
 void	top_checka(t_stacks *sk)
 {
-	if (sk->a[sk->atop] > sk->a[sk->atop - 1])
+	if (sk->a[1] > sk->a[0])
 		swapa(sk);
 	exit(0);
 }
 
-int	ft_array_isnumb(int argc, char **argv)
-{
-	int	i;
-	int	j;
+// void	rotateb(t_stacks *sk)
+// {
+// 	int	i;
+// 	int	temp;
 
-	j = 0;
-	while (++j < argc)
-	{
-		i = 0;
-		while (argv[j][i])
-		{
-			if ((argv[j][i] < '0' || argv[j][i] > '9') && argv[j][i] != '-')
-			{
-				putstr("Error\n");
-				exit(1);
-			}
-			i++;
-		}
-	}
-	return (0);
-}
+// 	i = sk->btop;
+// 	temp = sk->b[sk->btop];
+// 	while (--i >= 0)
+// 		sk->b[i + 1] = sk->b[i];
+// 	sk->b[0] = temp;
+// 	//putstr("ra\n");
+// 	print_stacks(sk);
+// }
+
+// int	main(int argc, char **argv)
+// {
+// 	t_stacks sk;
+
+// 	sk.lengh = argc - 1;
+// 	sk.total = 0;
+// 	sk.btop = -1;
+// 	sk.atop = sk.lengh - 1;
+// 	int_stacks(&sk, argv);
+// 	print_stacks(&sk);
+// 	rotatea(&sk);
+// 	//revrotatea(&sk);
+// 	print_stacks(&sk);
+// }
 
 int	main(int argc, char **argv)
 {
-	t_stacks	sk;
+	t_stacks sk;
 
 	sk.lengh = argc - 1;
 	sk.total = 0;
 	sk.btop = -1;
 	sk.atop = sk.lengh - 1;
-	//ft_array_isnumb(argc, argv);
-	//printf("is num\n");
 	int_stacks(&sk, argv);
 	if (argc == 2 || is_solved(&sk))
 		return (0);

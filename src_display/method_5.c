@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   method_5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 15:25:20 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/06 15:25:49 by marvin           ###   ########.fr       */
+/*   Updated: 2022/05/11 12:47:07 by jgobbett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sort_5(t_stacks *sk)
 	int	i;
 
 	i = 0;
-	while (i < 5)
+	while (i < 5 && sk->btop < 1)
 	{
-		if (sk->a[sk->atop] >= 4)
+		if (sk->a[0] >= 4)
 			pushb(sk);
 		else
 			rotatea(sk);
@@ -28,6 +28,8 @@ void	sort_5(t_stacks *sk)
 	sort_3(sk);
 	pusha(sk);
 	pusha(sk);
-	if (sk->a[sk->atop] == 4)
+	if (sk->a[0] == 5)
 		swapa(sk);
+	rotatea(sk);
+	rotatea(sk);
 }
