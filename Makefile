@@ -6,7 +6,7 @@
 #    By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 13:29:03 by jgobbett          #+#    #+#              #
-#    Updated: 2022/05/11 12:58:28 by jgobbett         ###   ########.fr        #
+#    Updated: 2022/05/11 14:01:13 by jgobbett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ test:
 
 testp:
 	@make
-	python3 pyviz.py `ruby -e "puts (1..50).to_a.shuffle.join(' ')"`
+	python3 pyviz.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
 
 test100:
 	@clear
