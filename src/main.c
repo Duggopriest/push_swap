@@ -47,7 +47,7 @@ void	int_stacks(t_stacks *sk, char **argv)
 	while (i < sk->lengh)
 	{
 		a[i] = 0;
-		b[i] = 0;
+		b[i] = -999999;
 		c[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
@@ -87,7 +87,7 @@ int	main(int argc, char **argv)
 	sk.atop = sk.lengh - 1;
 	int_stacks(&sk, argv);
 	array_checker(argc, argv);
-	if (argc == 2 || is_solved(&sk))
+	if (argc <= 2 || is_solved(&sk))
 		return (0);
 	else if (argc == 3)
 		top_checka(&sk);
