@@ -6,7 +6,7 @@
 #    By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 13:29:03 by jgobbett          #+#    #+#              #
-#    Updated: 2022/05/11 17:28:16 by jgobbett         ###   ########.fr        #
+#    Updated: 2022/05/11 17:48:51 by jgobbett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,36 +58,6 @@ test100:
 test500:
 	@clear
 	@./push_swap $(ARG500)
-
-run0:
-	@make display
-	@clear
-	@echo sorting
-	@./push_swap.out 3 3
-
-run1:
-	@make display
-	@clear
-	@echo sorting
-	@./push_swap.out 5 12
-
-run2:
-	@make display
-	@clear
-	@echo sorting
-	@./push_swap.out 100 1500
-
-run3:
-	@make display
-	@clear
-	@echo sorting
-	@./push_swap.out 500 11500
-
-run4:
-	@make display
-	@clear
-	@echo sorting
-	@./push_swap.out 12 50
 
 git:
 	@clear
