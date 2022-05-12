@@ -55,14 +55,14 @@ int	ft_atoi(const char *str)
 	return (num * sign);
 }
 
-void	print_stacks(t_stacks *sk)
-{
-	int	i;
+// void	print_stacks(t_stacks *sk)
+// {
+// 	int	i;
 
-	i = -1;
-	system("clear");
-	while (++i < sk->lengh)
-		printf("%d	->| %d 	| %d 	| %d |\n", i + 1, sk->a[i], sk->b[i], sk->c[i]);
-	printf("----------------------\n");
-	printf("Q%d A%d   B%d   M%d	bit=%d\n", sk->lengh, sk->atop, sk->btop, sk->total, sk->bit);
-}
+// 	i = -1;
+// 	system("clear");
+// 	while (++i < sk->lengh)
+// 		printf("%d	->| %d 	| %d 	|\n", i + 1, sk->a[i], sk->b[i]);
+// 	printf("----------------------\n");
+// 	printf("Q%d A%d   B%d   M%d	bit=%d\n", sk->lengh, sk->atop, sk->btop, sk->total, sk->bit);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgobbett <jgobbett@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:09:11 by jgobbett          #+#    #+#             */
-/*   Updated: 2022/05/12 17:10:17 by jgobbett         ###   ########.fr       */
+/*   Updated: 2022/05/12 20:22:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 typedef struct s_stacks {
 	int	*a;
 	int	*b;
-	int	*c;
 	int	lengh;
 	int	atop;
 	int	btop;
