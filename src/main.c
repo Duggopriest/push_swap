@@ -60,7 +60,7 @@ void	int_stacks(t_stacks *sk, char **argv)
 
 void	top_checka(t_stacks *sk)
 {
-	if (sk->a[1] > sk->a[0])
+	if (sk->a[1] < sk->a[0])
 		swapa(sk);
 	exit(0);
 }
